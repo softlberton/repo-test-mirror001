@@ -37,6 +37,11 @@ Enable EKS logging `cloudwatch`:
 eksctl utils update-cluster-logging --enable-types all --cluster "<eks-cluster-name>" --approve
 ```
 
+Set up kubeconfig:
+```shell
+aws eks update-kubeconfig --name "<eks-cluster-name>"
+```
+
 ### GitHub Runner - Actions Runner Controller
 
 Deploy actions Runner controller `operator`:
