@@ -102,6 +102,11 @@ helm install arc-runner-set -n arc-runners \
 
 **NOTE:** If you got error when installing arc-runner-set using personal access token (PAT), installing as follow:
 
+Get logs from listener pod:
+```shell
+kubectl logs -n arc-systems -l app.kubernetes.io/component=runner-scale-set-listener
+```
+
 **Error**
 ```shell
 2024-04-16T08:30:52Z    INFO    listener-app    app initialized
