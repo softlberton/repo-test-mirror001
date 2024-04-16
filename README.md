@@ -46,17 +46,29 @@ aws eks update-kubeconfig --name "<eks-cluster-name>"
 
 Deploy actions Runner controller `operator`:
 ```shell
-helm install arc \
- --namespace arc-systems \
- --create-namespace oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
+helm install arc -n arc-systems \
+ --create-namespace \
+ oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
 ```
+
+Check if the ARC operator is running:
+```shell
+kubectl get po -A | grep "arc"
+```
+
+To enable ARC to authenticate to GitHub, generate a personal access token or create GitHub App.
+
+- [Authenticating ARC with a GitHub App](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-github-app)
+- [Authenticating ARC with a personal access token (classic)](Authenticating ARC with a personal access token (classic))
+
+// to do
 
 Create new namespace for arc runner `scale set`:
 ```shell
 kubectl create ns arc-runners
 ```
 
-Create new kubernetes secret for arc runner `scale set`:
+Create kubernetes secret for arc runner `scale set` using GitHub App:
 ```shell
 kubectl create secret generic pre-defined-secret \
    --namespace="arc-runners" \
@@ -69,8 +81,7 @@ Deploy actions runner controller `scale set`:
 ```shell
 GITHUB_CONFIG_URL="https://github.com/<github-org-name>"
 
-helm install arc-runner-set \
- --namespace arc-runners \
+helm install arc-runner-set -n arc-runners \
  --create-namespace \
  --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
  --set githubConfigSecret="pre-defined-secret" \
