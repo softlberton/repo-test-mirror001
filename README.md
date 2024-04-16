@@ -116,6 +116,7 @@ kubectl logs -n arc-systems -l app.kubernetes.io/component=runner-scale-set-list
 2024-04-16T08:30:52Z    INFO    listener-app    getting Actions tenant URL and JWT      {"registrationURL": "https://api.github.com/actions/runner-registration"} 2024/04/16 08:30:52 Application returned an error: createSession failed: failed to create session: 409 - had issue communicating with Actions backend: The runner scale set arc-runner-set already has an active session for owner arc-runner-set-754b578d-listener.
 ```
 
+**Workaround**
 ```shell
 helm install arc-runner-set -n arc-runners \
  --create-namespace \
