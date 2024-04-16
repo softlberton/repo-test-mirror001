@@ -6,6 +6,7 @@
 
 - [IAM role](#eks---iam-role)
 - [EKS cluster](#eks---deploy-with-eksctl)
+- [Deploy Actions Runner Controller](#github-runner---actions-runner-controller)
 
 ### EKS - IAM role
 
@@ -80,3 +81,14 @@ Check controller and operator manager pods in the `arc-systems` namespace:
 ```shell
 kubectl get po -n arc-systems
 ```
+
+
+
+
+
+
+## Source
+
+- [Quickstart for Actions Runner Controller](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller)
+- [EKSCTL - Creating and managing clusters](https://eksctl.io/usage/creating-and-managing-clusters/)
+
