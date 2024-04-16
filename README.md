@@ -42,6 +42,11 @@ Set up kubeconfig:
 aws eks update-kubeconfig --name "<eks-cluster-name>"
 ```
 
+To delete the EKS cluster, run this command:
+```shell
+eksctl delete cluster -f ./eks-cluster-config/eks-cluster.yaml --disable-nodegroup-eviction --timeout 15m --force
+```
+
 ### GitHub Runner - Actions Runner Controller
 
 Deploy actions Runner controller `operator`:
@@ -60,6 +65,12 @@ To enable ARC to authenticate to GitHub, generate a personal access token or cre
 
 - [Authenticating ARC with a GitHub App](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-github-app)
 - [Authenticating ARC with a personal access token (classic)](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-personal-access-token-classic)
+
+#### GitHub App Authetication
+
+// to do
+
+#### Personal Access Token (PAT) Authentication
 
 // to do
 
