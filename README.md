@@ -125,7 +125,7 @@ helm install arc-runner-set -n arc-runners \
  oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
 ```
 
-You can see more about this issue in this link [createSession 409 error](https://github.com/actions/actions-runner-controller/issues/3209)
+You can see more about this issue in this link [ARC - createSession 409 error](https://github.com/actions/actions-runner-controller/issues/3209)
 
 Check helm release installations:
 ```shell
