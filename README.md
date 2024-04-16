@@ -59,7 +59,7 @@ kubectl get po -A | grep "arc"
 To enable ARC to authenticate to GitHub, generate a personal access token or create GitHub App.
 
 - [Authenticating ARC with a GitHub App](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-github-app)
-- [Authenticating ARC with a personal access token (classic)](Authenticating ARC with a personal access token (classic))
+- [Authenticating ARC with a personal access token (classic)](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-personal-access-token-classic)
 
 // to do
 
