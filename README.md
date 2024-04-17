@@ -103,7 +103,9 @@ kubectl get secret -n arc-runners
 Deploy actions runner controller `scale set`:
 ```shell
 GITHUB_CONFIG_URL="https://github.com/<github-org-name>"
+```
 
+```shell
 helm install arc-runner-set -n arc-runners \
  --create-namespace \
  --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
@@ -147,6 +149,11 @@ helm ls -A -o yaml
 Check controller and operator manager pods in the `arc-systems` namespace:
 ```shell
 kubectl get po -n arc-systems
+```
+
+Deregister github runner ´arc´:
+```shell
+helm uninstall arc-runner-set -n arc-runners
 ```
 
 
