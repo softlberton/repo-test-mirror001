@@ -146,12 +146,17 @@ Check helm release installations:
 helm ls -A -o yaml
 ```
 
+Get status from helm release chart:
+```shell
+helm status arc -n arc-systems
+```
+
 Check controller and operator manager pods in the `arc-systems` namespace:
 ```shell
 kubectl get po -n arc-systems
 ```
 
-Deregister github runner ´arc´:
+Deregister github runner `arc`:
 ```shell
 helm uninstall arc-runner-set -n arc-runners
 ```
