@@ -5,10 +5,14 @@ kind: ClusterConfig
 metadata:
   name: eks-github-runner-demo
   region: eu-west-1
+  version: "1.30"
+
+iam:
+  serviceRoleARN: arn:aws:iam::521543622635:role/GithubRunnerArcEksRole
 
 vpc:
   subnets:
-    private:
+    public:
       eu-west-1a: { id: subnet-0cf10b32b105fe2be }
       eu-west-1b: { id: subnet-0f04a389dff23a9a7 }
 
@@ -16,7 +20,7 @@ managedNodeGroups:
   - name: managed-ng-private
     instanceType: m5.xlarge
     # launch nodegroup in private subnets
-    privateNetworking: true
+    privateNetworking: false
     minSize: 2
     desiredCapacity: 3
     maxSize: 4

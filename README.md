@@ -12,17 +12,17 @@
 
 Create IAM role for EKS:
 ```shell
-aws iam create-role --role-name GithubRunnerEksRole --assume-role-policy-document file://"eks-iam-policy/eks-iam-role-trust-policy.json"
+aws iam create-role --role-name GithubRunnerArcEksRole --assume-role-policy-document file://"eks-iam-policy/eks-iam-role-trust-policy.json"
 ```
 
 Attach IAM policy role to the new EKS role created in the previous step:
 ```shell
-aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy --role-name GithubRunnerEksRole
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy --role-name GithubRunnerArcEksRole
 ```
 
 Show the new IAM role created for EKS:
 ```shell
-aws iam get-role --role-name GithubRunnerEksRole
+aws iam get-role --role-name GithubRunnerArcEksRole
 ```
 
 ### EKS - Deploy with eksctl
