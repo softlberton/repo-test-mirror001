@@ -1,0 +1,30 @@
+name: Deploy EKS
+run-name: EKS
+on:
+  workflow_dispatch:
+    inputs:
+      run:
+        description: Run the workflow
+        required: true
+        type: boolean
+        default: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+    name: Deploy EKS
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
